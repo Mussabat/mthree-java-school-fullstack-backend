@@ -101,7 +101,13 @@ public class CourseDaoImpl implements CourseDao {
     public void deleteAllStudentsFromCourse(int courseId) {
         //YOUR CODE STARTS HERE
 
+        // Removes the enrolments only; the students themselves stay in the student table.
+        final String sql = """
+                           DELETE FROM course_student
+                           WHERE course_id = ?
+                           """;
 
+        jdbcTemplate.update(sql, courseId);
 
         //YOUR CODE ENDS HERE
     }
