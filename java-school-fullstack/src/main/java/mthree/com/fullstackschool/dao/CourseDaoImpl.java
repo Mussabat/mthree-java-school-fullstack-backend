@@ -31,7 +31,7 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public List<Course> getAllCourses() {
         //YOUR CODE STARTS HERE
-        
+
        // CourseMapper converts each row of the result set into a Course.
 
          final String sql = """
@@ -48,7 +48,14 @@ public class CourseDaoImpl implements CourseDao {
     public Course findCourseById(int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // ? is a placeholder for a value that will be supplied later.
+        final String sql = """
+                           SELECT *
+                           FROM course
+                           WHERE cid = ?
+                           """;
+
+        return jdbcTemplate.queryForObject(sql, new CourseMapper(), id);
 
         //YOUR CODE ENDS HERE
     }
