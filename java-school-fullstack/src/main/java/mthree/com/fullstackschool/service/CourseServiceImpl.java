@@ -12,7 +12,13 @@ public class CourseServiceImpl implements CourseServiceInterface {
 
     //YOUR CODE STARTS HERE
 
+    // DAO is injected through the constructor 
+    private final CourseDao courseDao;
 
+    @Autowired
+    public CourseServiceImpl(CourseDao courseDao) {
+        this.courseDao = courseDao;
+    }
 
     //YOUR CODE ENDS HERE
 
