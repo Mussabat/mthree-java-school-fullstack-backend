@@ -9,8 +9,13 @@ public class CourseMapper implements RowMapper<Course> {
     @Override
     public Course mapRow(ResultSet rs, int rowNum) throws SQLException {
         //YOUR CODE STARTS HERE
-
-        return null;
+        // cid and courseCode differ from the Course field names.
+        Course course = new Course();
+        course.setCourseId(rs.getInt("cid"));
+        course.setCourseName(rs.getString("courseCode"));
+        course.setCourseDesc(rs.getString("courseDesc"));
+        course.setTeacherId(rs.getInt("teacherId"));
+        return course;
 
         //YOUR CODE ENDS HERE
     }
