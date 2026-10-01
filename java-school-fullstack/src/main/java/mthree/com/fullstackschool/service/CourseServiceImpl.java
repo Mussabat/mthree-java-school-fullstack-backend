@@ -25,7 +25,8 @@ public class CourseServiceImpl implements CourseServiceInterface {
     public List<Course> getAllCourses() {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // Pass through to the DAO, which returns every course in the database
+        return courseDao.getAllCourses();
 
         //YOUR CODE ENDS HERE
     }
