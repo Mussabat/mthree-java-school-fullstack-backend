@@ -86,7 +86,13 @@ public class CourseDaoImpl implements CourseDao {
     public void deleteCourse(int id) {
         //YOUR CODE STARTS HERE
 
+        // DELETE also goes through update(), since it changes data and returns no rows.
+        final String sql = """
+                           DELETE FROM course
+                           WHERE cid = ?
+                           """;
 
+        jdbcTemplate.update(sql, id);
 
         //YOUR CODE ENDS HERE
     }
