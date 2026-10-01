@@ -31,9 +31,15 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public List<Course> getAllCourses() {
         //YOUR CODE STARTS HERE
+        
+       // CourseMapper converts each row of the result set into a Course.
 
+         final String sql = """
+                            SELECT * 
+                            FROM course
+                            """;
 
-        return null;
+        return jdbcTemplate.query(sql, new CourseMapper());
 
         //YOUR CODE ENDS HERE
     }
