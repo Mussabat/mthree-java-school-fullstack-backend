@@ -64,7 +64,20 @@ public class CourseDaoImpl implements CourseDao {
     public void updateCourse(Course course) {
         //YOUR CODE STARTS HERE
 
+        // The arguments fill the ? placeholders in order, so cid goes last.
+        // No CourseMapper here: UPDATE returns no rows, so there is nothing to map.
+        
+        final String sql = """
+                           UPDATE course
+                           SET courseCode = ?, courseDesc = ?, teacherId = ?
+                           WHERE cid = ?
+                           """;
 
+        jdbcTemplate.update(sql,
+                course.getCourseName(),
+                course.getCourseDesc(),
+                course.getTeacherId(),
+                course.getCourseId());
 
         //YOUR CODE ENDS HERE
     }
