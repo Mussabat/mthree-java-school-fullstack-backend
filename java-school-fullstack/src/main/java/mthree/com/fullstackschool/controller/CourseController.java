@@ -45,7 +45,7 @@ public class CourseController {
     public Course updateCourse(@PathVariable int id, @RequestBody Course course) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return courseService.updateCourseData(id, course);
 
         //YOUR CODE ENDS HERE
     }
@@ -54,7 +54,7 @@ public class CourseController {
     public void deleteCourse(@PathVariable int id) {
         //YOUR CODE STARTS HERE
 
-
+        courseService.deleteCourseById(id);
 
         //YOUR CODE ENDS HERE
     }
