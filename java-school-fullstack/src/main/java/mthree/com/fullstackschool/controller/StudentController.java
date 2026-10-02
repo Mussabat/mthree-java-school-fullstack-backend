@@ -26,7 +26,7 @@ public class StudentController {
     public Student addStudent(@RequestBody Student student) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return studentServiceImpl.addNewStudent(student);
 
         //YOUR CODE ENDS HERE
     }
