@@ -28,6 +28,7 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public List<Student> getAllStudents() {
         //YOUR CODE STARTS HERE
 
+        // Delegate straight to the DAO
         return studentDao.getAllStudents();
 
         //YOUR CODE ENDS HERE
@@ -36,7 +37,15 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public Student getStudentById(int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        try {
+            return studentDao.findStudentById(id);
+        } catch (DataAccessException ex) {
+            // No student with this id: return a placeholder instead of throwing
+            Student student = new Student();
+            student.setStudentFirstName("Student Not Found");
+            student.setStudentLastName("Student Not Found");
+            return student;
+        }
 
         //YOUR CODE ENDS HERE
     }
