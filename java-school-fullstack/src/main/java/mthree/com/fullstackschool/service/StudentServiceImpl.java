@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public List<Student> getAllStudents() {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return studentDao.getAllStudents();
 
         //YOUR CODE ENDS HERE
     }
