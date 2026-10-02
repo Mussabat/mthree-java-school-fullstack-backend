@@ -63,6 +63,18 @@ public class TeacherDaoImpl implements TeacherDao {
     public void updateTeacher(Teacher t) {
         //YOUR CODE STARTS HERE
 
+        // The arguments fill the ? placeholders in order, so tid goes last.
+        final String sql = """
+                           UPDATE teacher
+                           SET tFName = ?, tLName = ?, dept = ?
+                           WHERE tid = ?
+                           """;
+
+        jdbcTemplate.update(sql,
+                t.getTeacherFName(),
+                t.getTeacherLName(),
+                t.getDept(),
+                t.getTeacherId());
 
         //YOUR CODE ENDS HERE
     }
