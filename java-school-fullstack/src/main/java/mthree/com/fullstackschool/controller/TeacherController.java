@@ -45,7 +45,7 @@ public class TeacherController {
     public Teacher updateTeacher(@PathVariable int id, @RequestBody Teacher teacher) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return teacherServiceImpl.updateTeacherData(id, teacher);
 
         //YOUR CODE ENDS HERE
     }
