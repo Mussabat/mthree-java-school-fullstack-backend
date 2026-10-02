@@ -48,8 +48,14 @@ public class TeacherServiceImpl implements TeacherServiceInterface {
     public Teacher addNewTeacher(Teacher teacher) {
         //YOUR CODE STARTS HERE
 
+        // A teacher with a blank name is flagged and returned without being saved.
+        if (teacher.getTeacherFName().isBlank() || teacher.getTeacherLName().isBlank()) {
+            teacher.setTeacherFName("First Name blank, teacher NOT added");
+            teacher.setTeacherLName("Last Name blank, teacher NOT added");
+            return teacher;
+        }
 
-        return null;
+        return teacherDao.createNewTeacher(teacher);
 
         //YOUR CODE ENDS HERE
     }
