@@ -112,6 +112,22 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public void addStudentToCourse(int studentId, int courseId) {
         //YOUR CODE STARTS HERE
 
+        // Both the student and the course must exist before the enrolment is added.
+        try {
+            Student student = getStudentById(studentId);
+            Course course = courseService.getCourseById(courseId);
+
+            if (student.getStudentFirstName().equals("Student Not Found")) {
+                System.out.println("Student not found");
+            } else if (course.getCourseName().equals("Course Not Found")) {
+                System.out.println("Course not found");
+            } else {
+                studentDao.addStudentToCourse(studentId, courseId);
+                System.out.println("Student: " + studentId + " added to course: " + courseId);
+            }
+        } catch (Exception ex) {
+            System.out.println("Student: " + studentId + " already enrolled in course: " + courseId);
+        }
 
         //YOUR CODE ENDS HERE
     }
