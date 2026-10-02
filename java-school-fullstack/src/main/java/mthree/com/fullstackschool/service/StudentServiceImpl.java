@@ -68,7 +68,15 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public Student updateStudentData(int id, Student student) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // The id in the URL must match the id in the body, otherwise nothing is saved.
+        if (id != student.getStudentId()) {
+            student.setStudentFirstName("IDs do not match, student not updated");
+            student.setStudentLastName("IDs do not match, student not updated");
+            return student;
+        }
+
+        studentDao.updateStudent(student);
+        return student;
 
         //YOUR CODE ENDS HERE
     }
