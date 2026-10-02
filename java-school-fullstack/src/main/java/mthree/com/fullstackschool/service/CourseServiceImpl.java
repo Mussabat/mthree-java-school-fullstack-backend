@@ -50,7 +50,13 @@ public class CourseServiceImpl implements CourseServiceInterface {
     public Course addNewCourse(Course course) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // Reject blank name or description without touching the database
+        if (course.getCourseName().trim().isEmpty() || course.getCourseDesc().trim().isEmpty()) {
+            course.setCourseName("Name blank, course NOT added");
+            course.setCourseDesc("Description blank, course NOT added");
+            return course;
+        }
+        return courseDao.createNewCourse(course);
 
         //YOUR CODE ENDS HERE
     }
