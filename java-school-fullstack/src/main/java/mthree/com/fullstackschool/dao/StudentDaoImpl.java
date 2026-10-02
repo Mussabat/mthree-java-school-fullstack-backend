@@ -39,8 +39,13 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> getAllStudents() {
         //YOUR CODE STARTS HERE
 
+        // StudentMapper converts each row of the result set into a Student.
+        final String sql = """
+                           SELECT *
+                           FROM student
+                           """;
 
-        return null;
+        return jdbcTemplate.query(sql, new StudentMapper());
 
         //YOUR CODE ENDS HERE
     }
