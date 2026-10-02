@@ -34,7 +34,15 @@ public class CourseServiceImpl implements CourseServiceInterface {
     public Course getCourseById(int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        try {
+            return courseDao.findCourseById(id);
+        } catch (DataAccessException ex) {
+            // No row for this id return a placeholder course instead of throwing
+            Course course = new Course();
+            course.setCourseName("Course Not Found");
+            course.setCourseDesc("Course Not Found");
+            return course;
+        }
 
         //YOUR CODE ENDS HERE
     }
