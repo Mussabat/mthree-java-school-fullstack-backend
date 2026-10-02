@@ -83,6 +83,13 @@ public class TeacherDaoImpl implements TeacherDao {
     public void deleteTeacher(int id) {
         //YOUR CODE STARTS HERE
 
+        // DELETE also goes through update(), since it changes data and returns no rows.
+        final String sql = """
+                           DELETE FROM teacher
+                           WHERE tid = ?
+                           """;
+
+        jdbcTemplate.update(sql, id);
 
         //YOUR CODE ENDS HERE
     }
