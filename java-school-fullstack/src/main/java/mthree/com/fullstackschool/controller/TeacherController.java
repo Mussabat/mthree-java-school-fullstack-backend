@@ -54,7 +54,7 @@ public class TeacherController {
     public void deleteTeacher(@PathVariable int id) {
         //YOUR CODE STARTS HERE
 
-
+        teacherServiceImpl.deleteTeacherById(id);
 
         //YOUR CODE ENDS HERE
     }
