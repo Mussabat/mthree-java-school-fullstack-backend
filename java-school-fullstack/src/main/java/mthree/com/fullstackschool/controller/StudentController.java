@@ -17,7 +17,7 @@ public class StudentController {
     public List<Student> getAllStudents() {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return studentServiceImpl.getAllStudents();
 
         //YOUR CODE ENDS HERE
     }
