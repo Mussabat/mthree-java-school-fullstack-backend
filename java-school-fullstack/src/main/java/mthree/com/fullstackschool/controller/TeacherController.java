@@ -36,7 +36,7 @@ public class TeacherController {
     public Teacher addTeacher(@RequestBody Teacher teacher) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return teacherServiceImpl.addNewTeacher(teacher);
 
         //YOUR CODE ENDS HERE
     }
