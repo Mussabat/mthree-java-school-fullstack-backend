@@ -36,7 +36,7 @@ public class CourseController {
     public Course addCourse(@RequestBody Course course) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return courseService.addNewCourse(course);
 
         //YOUR CODE ENDS HERE
     }
