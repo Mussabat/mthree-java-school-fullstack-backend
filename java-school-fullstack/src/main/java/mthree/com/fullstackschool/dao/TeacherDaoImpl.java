@@ -47,7 +47,14 @@ public class TeacherDaoImpl implements TeacherDao {
     public Teacher findTeacherById(int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // ? is a placeholder for a value that will be supplied later.
+        final String sql = """
+                           SELECT *
+                           FROM teacher
+                           WHERE tid = ?
+                           """;
+
+        return jdbcTemplate.queryForObject(sql, new TeacherMapper(), id);
 
         //YOUR CODE ENDS HERE
     }
