@@ -13,6 +13,15 @@ public class StudentServiceImpl implements StudentServiceInterface {
 
     //YOUR CODE STARTS HERE
 
+    private final StudentDao studentDao;
+
+    @Autowired
+    private CourseServiceImpl courseService;
+
+    // Spring injects the StudentDao bean here
+    public StudentServiceImpl(StudentDao studentDao) {
+        this.studentDao = studentDao;
+    }
 
     //YOUR CODE ENDS HERE
 
