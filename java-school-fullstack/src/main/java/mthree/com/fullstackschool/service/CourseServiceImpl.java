@@ -13,6 +13,7 @@ public class CourseServiceImpl implements CourseServiceInterface {
     //YOUR CODE STARTS HERE
 
     // DAO is injected through the constructor 
+    
     private final CourseDao courseDao;
 
     @Autowired
@@ -26,6 +27,7 @@ public class CourseServiceImpl implements CourseServiceInterface {
         //YOUR CODE STARTS HERE
 
         // Pass through to the DAO, which returns every course in the database
+
         return courseDao.getAllCourses();
 
         //YOUR CODE ENDS HERE
@@ -38,6 +40,7 @@ public class CourseServiceImpl implements CourseServiceInterface {
             return courseDao.findCourseById(id);
         } catch (DataAccessException ex) {
             // No row for this id return a placeholder course instead of throwing
+
             Course course = new Course();
             course.setCourseName("Course Not Found");
             course.setCourseDesc("Course Not Found");
@@ -51,6 +54,7 @@ public class CourseServiceImpl implements CourseServiceInterface {
         //YOUR CODE STARTS HERE
 
         // Reject blank name or description without touching the database
+
         if (course.getCourseName().trim().isEmpty() || course.getCourseDesc().trim().isEmpty()) {
             course.setCourseName("Name blank, course NOT added");
             course.setCourseDesc("Description blank, course NOT added");
@@ -65,6 +69,7 @@ public class CourseServiceImpl implements CourseServiceInterface {
         //YOUR CODE STARTS HERE
 
         // The id in the URL must match the id in the request body
+
         if (id != course.getCourseId()) {
             course.setCourseName("IDs do not match, course not updated");
             course.setCourseDesc("IDs do not match, course not updated");
@@ -79,7 +84,10 @@ public class CourseServiceImpl implements CourseServiceInterface {
     public void deleteCourseById(int id) {
         //YOUR CODE STARTS HERE
 
+        // Pass through to the DAO, then log which course was removed
 
+        courseDao.deleteCourse(id);
+        System.out.println("Course ID: " + id + " deleted");
 
         //YOUR CODE ENDS HERE
     }
