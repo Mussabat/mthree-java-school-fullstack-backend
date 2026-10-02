@@ -12,13 +12,19 @@ public class TeacherServiceImpl implements TeacherServiceInterface {
 
     //YOUR CODE STARTS HERE
 
+    private final TeacherDao teacherDao;
+
+    // Spring injects the TeacherDao bean here; the tests pass in a stub instead.
+    public TeacherServiceImpl(TeacherDao teacherDao) {
+        this.teacherDao = teacherDao;
+    }
 
     //YOUR CODE ENDS HERE
 
     public List<Teacher> getAllTeachers() {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return teacherDao.getAllTeachers();
 
         //YOUR CODE ENDS HERE
     }
