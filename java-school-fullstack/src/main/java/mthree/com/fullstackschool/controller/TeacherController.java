@@ -18,7 +18,7 @@ public class TeacherController {
     public List<Teacher> getAllTeachers() {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return teacherServiceImpl.getAllTeachers();
 
         //YOUR CODE ENDS HERE
     }
@@ -27,7 +27,7 @@ public class TeacherController {
     public Teacher getTeacherById(@PathVariable int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return teacherServiceImpl.getTeacherById(id);
 
         //YOUR CODE ENDS HERE
     }
