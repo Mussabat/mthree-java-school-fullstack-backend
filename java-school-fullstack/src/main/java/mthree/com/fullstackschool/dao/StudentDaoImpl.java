@@ -54,7 +54,14 @@ public class StudentDaoImpl implements StudentDao {
     public Student findStudentById(int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // ? is a placeholder for a value that will be supplied later.
+        final String sql = """
+                           SELECT *
+                           FROM student
+                           WHERE sid = ?
+                           """;
+
+        return jdbcTemplate.queryForObject(sql, new StudentMapper(), id);
 
         //YOUR CODE ENDS HERE
     }
