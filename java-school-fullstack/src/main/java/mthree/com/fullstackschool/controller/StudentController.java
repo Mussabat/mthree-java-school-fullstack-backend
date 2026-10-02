@@ -35,7 +35,7 @@ public class StudentController {
     public Student getStudentById(@PathVariable int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return studentServiceImpl.getStudentById(id);
 
         //YOUR CODE ENDS HERE
     }
