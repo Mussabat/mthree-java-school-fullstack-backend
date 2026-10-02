@@ -113,7 +113,13 @@ public class StudentDaoImpl implements StudentDao {
     public void addStudentToCourse(int studentId, int courseId) {
         //YOUR CODE STARTS HERE
 
+        // An enrolment is just a row in the course_student join table.
+        final String sql = """
+                           INSERT INTO course_student (student_id, course_id)
+                           VALUES (?, ?)
+                           """;
 
+        jdbcTemplate.update(sql, studentId, courseId);
 
         //YOUR CODE ENDS HERE
     }
