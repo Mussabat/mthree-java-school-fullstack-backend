@@ -84,7 +84,8 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public void deleteStudentById(int id) {
         //YOUR CODE STARTS HERE
 
-
+        // Delegate straight to the DAO
+        studentDao.deleteStudent(id);
 
         //YOUR CODE ENDS HERE
     }
