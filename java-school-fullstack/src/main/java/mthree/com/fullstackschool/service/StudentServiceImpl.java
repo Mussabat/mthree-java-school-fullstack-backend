@@ -53,7 +53,14 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public Student addNewStudent(Student student) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // A student with a blank name is flagged and returned without being saved.
+        if (student.getStudentFirstName().isBlank() || student.getStudentLastName().isBlank()) {
+            student.setStudentFirstName("First Name blank, student NOT added");
+            student.setStudentLastName("Last Name blank, student NOT added");
+            return student;
+        }
+
+        return studentDao.createNewStudent(student);
 
         //YOUR CODE ENDS HERE
     }
