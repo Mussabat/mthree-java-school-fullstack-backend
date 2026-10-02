@@ -32,8 +32,15 @@ public class TeacherServiceImpl implements TeacherServiceInterface {
     public Teacher getTeacherById(int id) {
         //YOUR CODE STARTS HERE
 
-
-            return null;
+        // The DAO throws when no row matches the id, so return a placeholder teacher instead.
+        try {
+            return teacherDao.findTeacherById(id);
+        } catch (DataAccessException ex) {
+            Teacher teacher = new Teacher();
+            teacher.setTeacherFName("Teacher Not Found");
+            teacher.setTeacherLName("Teacher Not Found");
+            return teacher;
+        }
 
         //YOUR CODE ENDS HERE
     }
