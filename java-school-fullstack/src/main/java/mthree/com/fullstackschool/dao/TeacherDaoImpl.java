@@ -32,7 +32,13 @@ public class TeacherDaoImpl implements TeacherDao {
     public List<Teacher> getAllTeachers() {
         //YOUR CODE STARTS HERE
 
-        return null;
+        // TeacherMapper converts each row of the result set into a Teacher.
+        final String sql = """
+                           SELECT *
+                           FROM teacher
+                           """;
+
+        return jdbcTemplate.query(sql, new TeacherMapper());
 
         //YOUR CODE ENDS HERE
     }
