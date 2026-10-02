@@ -27,7 +27,7 @@ public class CourseController {
     public Course getCourseById(@PathVariable int id) {
         //YOUR CODE STARTS HERE
 
-        return null;
+        return courseService.getCourseById(id);
 
         //YOUR CODE ENDS HERE
     }
