@@ -63,8 +63,15 @@ public class TeacherServiceImpl implements TeacherServiceInterface {
     public Teacher updateTeacherData(int id, Teacher teacher) {
         //YOUR CODE STARTS HERE
 
+        // The id in the URL must match the id in the body, otherwise nothing is saved.
+        if (id != teacher.getTeacherId()) {
+            teacher.setTeacherFName("IDs do not match, teacher not updated");
+            teacher.setTeacherLName("IDs do not match, teacher not updated");
+            return teacher;
+        }
 
-        return null;
+        teacherDao.updateTeacher(teacher);
+        return teacher;
 
         //YOUR CODE ENDS HERE
     }
