@@ -70,6 +70,17 @@ public class StudentDaoImpl implements StudentDao {
     public void updateStudent(Student student) {
         //YOUR CODE STARTS HERE
 
+        // The arguments fill the ? placeholders in order, so sid goes last.
+        final String sql = """
+                           UPDATE student
+                           SET fName = ?, lName = ?
+                           WHERE sid = ?
+                           """;
+
+        jdbcTemplate.update(sql,
+                student.getStudentFirstName(),
+                student.getStudentLastName(),
+                student.getStudentId());
 
         //YOUR CODE ENDS HERE
     }
